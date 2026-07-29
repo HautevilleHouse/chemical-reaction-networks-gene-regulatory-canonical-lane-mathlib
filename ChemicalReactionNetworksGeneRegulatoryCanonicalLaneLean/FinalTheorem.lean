@@ -1,0 +1,19 @@
+import canonicalLaneMathlib.AdmissibleClass
+import ChemicalReactionNetworksGeneRegulatoryCanonicalLaneLean.ChemicalReactionNetwork
+import ChemicalReactionNetworksGeneRegulatoryCanonicalLaneLean.HardyWeinbergEquilibrium
+import ChemicalReactionNetworksGeneRegulatoryCanonicalLaneLean.GeneRegulatoryNetwork
+import ChemicalReactionNetworksGeneRegulatoryCanonicalLaneLean.SequenceAlignment
+import ChemicalReactionNetworksGeneRegulatoryCanonicalLaneLean.PhylogeneticTree
+
+namespace HautevilleHouse
+namespace ChemicalReactionNetworksGeneRegulatoryCanonicalLaneLean
+
+def ConstrainedGeneRegulatoryClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_gene_regulatory_endgame (A : AdmissibleClass) :
+    ConstrainedGeneRegulatoryClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end ChemicalReactionNetworksGeneRegulatoryCanonicalLaneLean
+end HautevilleHouse
